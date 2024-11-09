@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"ObjSolidBlock",
+  "%Name":"obj_solidBlock",
   "eventList":[],
   "managed":true,
-  "name":"ObjSolidBlock",
+  "name":"obj_solidBlock",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":true,
   "spriteId":{
-    "name":"SprSolidBlock",
-    "path":"sprites/SprSolidBlock/SprSolidBlock.yy",
+    "name":"spr_solid_block",
+    "path":"sprites/spr_solid_block/spr_solid_block.yy",
   },
   "spriteMaskId":null,
   "visible":true,

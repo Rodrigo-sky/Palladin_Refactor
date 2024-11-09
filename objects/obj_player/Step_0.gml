@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Executes code every frame
 // You can write your code in this editor
 
 image_speed = 0;
