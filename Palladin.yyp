@@ -34,9 +34,10 @@
   },
   "name":"Palladin",
   "resources":[
-    {"id":{"name":"ObjHero","path":"objects/ObjHero/ObjHero.yy",},},
+    {"id":{"name":"ObjPlayer","path":"objects/ObjPlayer/ObjPlayer.yy",},},
     {"id":{"name":"ObjSolidBlock","path":"objects/ObjSolidBlock/ObjSolidBlock.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"BackStageOne","path":"sprites/BackStageOne/BackStageOne.yy",},},
     {"id":{"name":"Sprite2","path":"sprites/Sprite2/Sprite2.yy",},},
     {"id":{"name":"SprSolidBlock","path":"sprites/SprSolidBlock/SprSolidBlock.yy",},},
   ],
