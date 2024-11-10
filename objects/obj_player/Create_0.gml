@@ -1,9 +1,8 @@
 walk_speed = 30;
-jump_speed = -12;
-grav = 1;
+jump_speed = -15;
 
 horizontal_speed = 0;
-max_horizontal_speed = 13;
+max_horizontal_speed = 5;
 
 vertical_speed = 0;
 max_vertical_speed = 20;
@@ -17,40 +16,32 @@ takes_damage = false;
 
 #region // Inicializa as variáveis de controle
 function initialize_controls() {
-    global.key_right = keyboard_check(vk_right);
-    global.key_left = keyboard_check(vk_left);
-    global.key_jump = keyboard_check_pressed(vk_up);
+    global.key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+    global.key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+    global.key_jump = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
+    global.key_fall = keyboard_check_released(vk_up) || keyboard_check_released(ord("W"));
     global.key_attack = keyboard_check(vk_space);
-    global.key_fall = keyboard_check_released(vk_up);
-    global.key_run = keyboard_check(vk_shift);
-    global.hero_right = keyboard_check_released(vk_right);
-    global.hero_left = keyboard_check_released(vk_left);
+	global.key_run = keyboard_check(vk_shift);
+
 }
 #endregion
 
-#region // Função que aplica o movimento com base nas teclas de controle
+#region // Aplica o movimento com base nas teclas de controle
 function apply_movement() {
     // Atualiza as variáveis de controle
     initialize_controls();
 
     // Movimentos horizontais
     if (global.key_right) {
-        horizontal_speed++;
+        horizontal_speed = max_horizontal_speed;
     }
 
     if (global.key_left) {
-        horizontal_speed--;
+        horizontal_speed = -max_horizontal_speed;
     }
 
     if (!global.key_right && !global.key_left) {
         horizontal_speed = 0;
-    }
-
-    // Limita a velocidade horizontal
-    if (horizontal_speed > max_horizontal_speed) {
-        horizontal_speed = max_horizontal_speed;
-    } else if (horizontal_speed < -max_horizontal_speed) {
-        horizontal_speed = -max_horizontal_speed;
     }
 
     // Verifica colisão com o bloco sólido
@@ -62,14 +53,16 @@ function apply_movement() {
 }
 #endregion
 
-#region // Função para verificar se o personagem está no chão
+#region // Verifica se o personagem está no chão
+
 function check_ground_status() {
     return place_meeting(x, y + 1, obj_solid_block);
 }
 
 // Função para aplicar o movimento vertical e o salto
 function apply_vertical_movement() {
-    // Verifica o estado do chão
+    
+	// Verifica o estado do chão
     ground = check_ground_status();
 
     // Aplicação da gravidade
