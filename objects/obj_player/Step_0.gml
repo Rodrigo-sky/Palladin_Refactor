@@ -1,7 +1,7 @@
 /// @description Executes code every frame
 // You can write your code in this editor
 
-image_speed = 0;
+image_speed = 1;
 
 var _key_right = keyboard_check(vk_right);
 var _key_left = keyboard_check(vk_left);
