@@ -8,7 +8,7 @@ max_horizontal_speed = 13;
 vertical_speed = 0;
 max_vertical_speed = 20;
 
-ground = true;
+ground = false;
 
 life = 100;
 

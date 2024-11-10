@@ -26,7 +26,6 @@ if ((!_key_right) && (!_key_left)) {
 }
 
 
-
 if (horizontal_speed > max_horizontal_speed) {
 	
 	horizontal_speed = max_horizontal_speed;
@@ -44,3 +43,31 @@ if (place_meeting(x+horizontal_speed,y, obj_solid_block)) {
 	x += horizontal_speed
 }
 
+//###########################################################################################
+
+if (place_meeting(x, y+1, obj_solid_block)) { 
+	ground = true 
+} else { 
+	ground = false 
+}
+
+if (!_key_jump && !ground) {
+	vertical_speed ++;
+} else {
+	vertical_speed = 0;
+}
+
+if (_key_jump && ground) {
+	vertical_speed = jump_speed;
+}
+
+
+if ((place_meeting(x, y+vertical_speed, obj_solid_block))){
+	while (!place_meeting(x, y+1, obj_solid_block)) {
+		y += 1;
+	}
+	ground = true;
+	vertical_speed = 0
+}
+
+y += vertical_speed;
