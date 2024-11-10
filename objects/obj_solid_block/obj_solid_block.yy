@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_solidBlock",
+  "%Name":"obj_solid_block",
   "eventList":[],
   "managed":true,
-  "name":"obj_solidBlock",
+  "name":"obj_solid_block",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

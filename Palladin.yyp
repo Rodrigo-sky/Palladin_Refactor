@@ -35,7 +35,7 @@
   "name":"Palladin",
   "resources":[
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
-    {"id":{"name":"obj_solidBlock","path":"objects/obj_solidBlock/obj_solidBlock.yy",},},
+    {"id":{"name":"obj_solid_block","path":"objects/obj_solid_block/obj_solid_block.yy",},},
     {"id":{"name":"room_stage_one","path":"rooms/room_stage_one/room_stage_one.yy",},},
     {"id":{"name":"back_stage_one","path":"sprites/back_stage_one/back_stage_one.yy",},},
     {"id":{"name":"spr_solid_block","path":"sprites/spr_solid_block/spr_solid_block.yy",},},

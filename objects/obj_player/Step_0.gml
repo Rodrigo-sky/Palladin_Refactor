@@ -14,6 +14,7 @@ var _hero_left = keyboard_check_released(vk_left);
 
 if (_key_right) {
 	horizontal_speed ++;
+	
 }
 
 if (_key_left) {
@@ -24,7 +25,8 @@ if ((!_key_right) && (!_key_left)) {
 	horizontal_speed = 0;
 }
 
-x += horizontal_speed
+
+
 if (horizontal_speed > max_horizontal_speed) {
 	
 	horizontal_speed = max_horizontal_speed;
@@ -32,5 +34,13 @@ if (horizontal_speed > max_horizontal_speed) {
 } else if (horizontal_speed < -max_horizontal_speed) {
 	
 	horizontal_speed = -max_horizontal_speed;
+}
+
+if (place_meeting(x+horizontal_speed,y, obj_solid_block)) {
+	
+	horizontal_speed = 0;
+	
+} else {
+	x += horizontal_speed
 }
 
