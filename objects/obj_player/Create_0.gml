@@ -13,6 +13,15 @@ life = 100;
 
 takes_damage = false;
 
+state = MOVE_STATE.IDLE;
+
+enum MOVE_STATE {
+	IDLE,
+	WALK_RIGHT,
+	WALK_LEFT,
+	JUMP
+}
+
 
 #region // Inicializa as variáveis de controle
 function initialize_controls() {
@@ -34,14 +43,25 @@ function apply_movement() {
     // Movimentos horizontais
     if (global.key_right) {
         horizontal_speed = max_horizontal_speed;
+		state = MOVE_STATE.WALK_RIGHT;
+		sprite_index = spr_player_walk;
+		image_xscale = 1;
+		image_speed = 1;
     }
 
     if (global.key_left) {
         horizontal_speed = -max_horizontal_speed;
+		state = MOVE_STATE.WALK_LEFT;
+		sprite_index = spr_player_walk;
+		image_xscale = -1;
+		image_speed = 1;
     }
 
     if (!global.key_right && !global.key_left) {
         horizontal_speed = 0;
+		state = MOVE_STATE.IDLE
+		sprite_index = spr_player_idle;
+		image_speed = 1;
     }
 
     // Verifica colisão com o bloco sólido
@@ -68,6 +88,9 @@ function apply_vertical_movement() {
     // Aplicação da gravidade
     if (!global.key_jump && !ground) {
         vertical_speed++;
+		state = MOVE_STATE.JUMP;
+		sprite_index = spr_player_jump;
+		image_speed = 1;
     } else {
         vertical_speed = 0;
     }
