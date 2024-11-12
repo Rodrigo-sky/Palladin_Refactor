@@ -1,4 +1,3 @@
-walk_speed = 30;
 jump_speed = -15;
 
 horizontal_speed = 0;
@@ -8,12 +7,11 @@ vertical_speed = 0;
 max_vertical_speed = 20;
 
 ground = false;
+state = MOVE_STATE.IDLE;
 
 life = 100;
 
 takes_damage = false;
-
-state = MOVE_STATE.IDLE;
 
 enum MOVE_STATE {
 	IDLE,
@@ -44,24 +42,16 @@ function apply_movement() {
     if (global.key_right) {
         horizontal_speed = max_horizontal_speed;
 		state = MOVE_STATE.WALK_RIGHT;
-		sprite_index = spr_player_walk;
-		image_xscale = 1;
-		image_speed = 1;
     }
 
     if (global.key_left) {
         horizontal_speed = -max_horizontal_speed;
 		state = MOVE_STATE.WALK_LEFT;
-		sprite_index = spr_player_walk;
-		image_xscale = -1;
-		image_speed = 1;
     }
 
     if (!global.key_right && !global.key_left) {
         horizontal_speed = 0;
 		state = MOVE_STATE.IDLE
-		sprite_index = spr_player_idle;
-		image_speed = 1;
     }
 
     // Verifica colisão com o bloco sólido
@@ -89,8 +79,6 @@ function apply_vertical_movement() {
     if (!global.key_jump && !ground) {
         vertical_speed++;
 		state = MOVE_STATE.JUMP;
-		sprite_index = spr_player_jump;
-		image_speed = 1;
     } else {
         vertical_speed = 0;
     }
@@ -113,3 +101,30 @@ function apply_vertical_movement() {
     y += vertical_speed;
 }
 #endregion
+
+function change_sprite () {
+	switch(state) {
+	    case MOVE_STATE.IDLE:
+	        sprite_index = spr_player_idle;
+			image_speed = 1;
+	        break;
+	    case MOVE_STATE.WALK_RIGHT:
+	        sprite_index = spr_player_walk;
+			image_xscale = 1;
+			image_speed = 1;
+	        break;
+	    case MOVE_STATE.WALK_LEFT:
+			sprite_index = spr_player_walk;
+			image_xscale = -1;
+			image_speed = 1;
+	        break;
+		case MOVE_STATE.JUMP:
+			sprite_index = spr_player_jump;
+			image_speed = 1;
+	        break;
+	    default:
+	        sprite_index = spr_player_idle;
+			image_speed = 1;
+	        break;
+	}
+}

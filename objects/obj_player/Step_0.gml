@@ -7,4 +7,6 @@ apply_movement();
 
 apply_vertical_movement();
 
+change_sprite();
+
 show_debug_message(state);
