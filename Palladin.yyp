@@ -39,6 +39,7 @@
     {"id":{"name":"obj_solid_block","path":"objects/obj_solid_block/obj_solid_block.yy",},},
     {"id":{"name":"room_stage_one","path":"rooms/room_stage_one/room_stage_one.yy",},},
     {"id":{"name":"back_stage_one","path":"sprites/back_stage_one/back_stage_one.yy",},},
+    {"id":{"name":"spr_player_atack","path":"sprites/spr_player_atack/spr_player_atack.yy",},},
     {"id":{"name":"spr_player_idle","path":"sprites/spr_player_idle/spr_player_idle.yy",},},
     {"id":{"name":"spr_player_jump","path":"sprites/spr_player_jump/spr_player_jump.yy",},},
     {"id":{"name":"spr_player_walk","path":"sprites/spr_player_walk/spr_player_walk.yy",},},
