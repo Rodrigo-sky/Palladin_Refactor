@@ -10,5 +10,5 @@ apply_vertical_movement();
 change_sprite();
 update_cooldowns()
 
-show_debug_message("ESTADO: " + state);
+show_debug_message("ESTADO: " + string(state));
 show_debug_message(atack_cooldown)
